@@ -57,6 +57,15 @@ public class CourierSteps {
         }
     }
 
+    @Step("Send DELETE request to /api/v1/courier without id")
+    public ValidatableResponse deleteCourierWithoutId() {
+        return given()
+                .baseUri(BASE_URL)
+                .when()
+                .delete("/api/v1/courier")
+                .then();
+    }
+
     @Step("Send POST request to /api/v1/courier")
     public Response createCourier(CreateCourierRequest request) {
         return  given()
