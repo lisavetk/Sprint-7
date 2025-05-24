@@ -13,7 +13,6 @@ import org.junit.runners.Parameterized;
 import praktikum.courier.CourierSteps;
 
 import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.notNullValue;
 @DisplayName("Login courier without login or password")
 @RunWith(Parameterized.class)
 public class LoginCourierWithoutDataTest {
