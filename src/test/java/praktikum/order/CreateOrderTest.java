@@ -32,7 +32,7 @@ public class CreateOrderTest {
     String deliveryDate;
     String comment;
     List<String> color;
-    int track;
+    int track = 0;
 
     public CreateOrderTest(List<String> color, String chooseColor) {
         this.color = color;
@@ -83,6 +83,8 @@ public class CreateOrderTest {
 
     @After
     public void tearDown() {
-        orderStep.cancelOrder(track);
+        if (track != 0) {
+            orderStep.cancelOrder(track);
+        }
     }
 }
