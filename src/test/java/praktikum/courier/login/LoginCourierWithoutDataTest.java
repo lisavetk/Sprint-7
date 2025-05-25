@@ -12,6 +12,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import praktikum.courier.CourierSteps;
 
+import static org.apache.http.HttpStatus.SC_BAD_REQUEST;
 import static org.hamcrest.Matchers.equalTo;
 @DisplayName("Login courier without login or password")
 @RunWith(Parameterized.class)
@@ -57,7 +58,7 @@ public class LoginCourierWithoutDataTest {
         String passwordTest = "valid".equals(password) ? randomPassword : password;
         courierSteps.loginCourier(loginTest, passwordTest)
                 .then()
-                .statusCode(400)
+                .statusCode(SC_BAD_REQUEST)
                 .body("message", equalTo("Недостаточно данных для входа"));
     }
 

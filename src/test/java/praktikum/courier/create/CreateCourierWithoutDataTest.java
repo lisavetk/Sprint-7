@@ -11,6 +11,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import praktikum.courier.CourierSteps;
+
+import static org.apache.http.HttpStatus.SC_BAD_REQUEST;
 import static org.hamcrest.CoreMatchers.equalTo;
 
 @DisplayName("Create courier without login or password")
@@ -56,7 +58,7 @@ public class CreateCourierWithoutDataTest {
         CreateCourierRequest request = new CreateCourierRequest(login, password, firstName);
         courierSteps.createCourier(request)
                 .then()
-                .statusCode(400)
+                .statusCode(SC_BAD_REQUEST)
                 .body("message", equalTo("Недостаточно данных для создания учетной записи"));
     }
 

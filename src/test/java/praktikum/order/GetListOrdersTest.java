@@ -7,6 +7,7 @@ import io.restassured.config.LogConfig;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.apache.http.HttpStatus.SC_OK;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.Matchers.greaterThan;
 
@@ -26,7 +27,7 @@ public class GetListOrdersTest {
         OrderStep orderStep = new OrderStep();
         orderStep.getOrders()
                 .then()
-                .statusCode(200)
+                .statusCode(SC_OK)
                 .body("orders", notNullValue())
                 .body("orders.size()", greaterThan(0));
         }

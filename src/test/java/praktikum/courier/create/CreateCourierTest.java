@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import praktikum.courier.CourierSteps;
 
+import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.*;
 
 @DisplayName("Create courier with valid data")
@@ -34,7 +35,7 @@ public class CreateCourierTest {
     public void createCourierReturn201DataIsValid() {
         courierSteps.createCourier(login, password, firstName)
                 .then()
-                .statusCode(201)
+                .statusCode(SC_CREATED)
                 .body("ok", is(true));
     }
 
@@ -45,7 +46,7 @@ public class CreateCourierTest {
         courierSteps.createCourier(login, password, firstName);
         courierSteps.createCourier(login, password, firstName)
                 .then()
-                .statusCode(409)
+                .statusCode(SC_CONFLICT)
                 .body("message", containsString("Этот логин уже используется"));
     }
 

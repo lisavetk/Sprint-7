@@ -12,6 +12,7 @@ import praktikum.courier.CourierSteps;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
+import static org.apache.http.HttpStatus.*;
 
 @DisplayName("Login courier")
 public class LoginCourierTest {
@@ -37,7 +38,7 @@ public class LoginCourierTest {
     public void loginCourierReturn200AndIdDataIsValid() {
         courierSteps.loginCourier(login, password)
                 .then()
-                .statusCode(200)
+                .statusCode(SC_OK)
                 .body("id", notNullValue());
     }
 
@@ -49,7 +50,7 @@ public class LoginCourierTest {
         password = RandomStringUtils.randomAlphabetic(10);
         courierSteps.loginCourier(login, password)
                 .then()
-                .statusCode(404)
+                .statusCode(SC_NOT_FOUND)
                 .body("message", equalTo("Учетная запись не найдена"));
     }
 

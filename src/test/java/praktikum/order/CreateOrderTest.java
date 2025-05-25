@@ -15,6 +15,8 @@ import org.junit.runners.Parameterized;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
+
+import static org.apache.http.HttpStatus.SC_CREATED;
 import static org.hamcrest.Matchers.notNullValue;
 import static praktikum.EnvConf.COLOR_BLACK;
 import static praktikum.EnvConf.COLOR_GREY;
@@ -76,7 +78,7 @@ public class CreateOrderTest {
     public void createOrderReturn201ValidData() {
         Response response = orderStep.createOrder(firstName, lastName, address, metroStation, phone, rentTime, deliveryDate, comment, color);
         response.then()
-                .statusCode(201)
+                .statusCode(SC_CREATED)
                 .body("track", notNullValue());
         track = response.path("track");
     }

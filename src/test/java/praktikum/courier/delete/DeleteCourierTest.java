@@ -9,7 +9,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Before;
 import org.junit.Test;
 import praktikum.courier.CourierSteps;
-
+import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 
@@ -36,7 +36,7 @@ public class DeleteCourierTest {
         Response loginResponse = courierSteps.loginCourier(login, password);
         Integer id = loginResponse.path("id");
         courierSteps.deleteCourier(id)
-                .statusCode(200)
+                .statusCode(SC_OK)
                 .body("ok", is(true));
     }
 
@@ -45,7 +45,7 @@ public class DeleteCourierTest {
     @Description("Return 400 Bad Request and \"message\":  \"Недостаточно данных для удаления курьера\"")
     public void deleteCourierReturn400WithoutId() {
         courierSteps.deleteCourierWithoutId()
-                .statusCode(400)
+                .statusCode(SC_BAD_REQUEST)
                 .body("message", containsString("Недостаточно данных для удаления курьера"));
     }
 
@@ -55,7 +55,7 @@ public class DeleteCourierTest {
     public void deleteCourierReturn404WithNonExistentId() {
         int id = Integer.parseInt(RandomStringUtils.randomNumeric(7));
         courierSteps.deleteCourier(id)
-                .statusCode(404)
+                .statusCode(SC_NOT_FOUND)
                 .body("message", containsString("Курьера с таким id нет"));
     }
 }
