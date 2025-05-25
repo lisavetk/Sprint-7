@@ -8,6 +8,7 @@ import io.restassured.response.ValidatableResponse;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
+import static praktikum.Endpoints.*;
 import static praktikum.EnvConf.BASE_URL;
 
 public class OrderStep {
@@ -23,7 +24,7 @@ public class OrderStep {
                 .baseUri(BASE_URL)
                 .body(request)
                 .when()
-                .post("/api/v1/orders");
+                .post(API_CREATE_ORDER);
     }
 
     @Step("Send PUT request to /api/v1/orders/cancel")
@@ -33,7 +34,7 @@ public class OrderStep {
                 .baseUri(BASE_URL)
                 .body("{\"track\": " + track + "}")
                 .when()
-                .put("/api/v1/orders/cancel")
+                .put(API_ORDER_CANCEL)
                 .then();
     }
 
@@ -42,6 +43,6 @@ public class OrderStep {
         return given()
                 .baseUri(BASE_URL)
                 .when()
-                .get("/api/v1/orders");
+                .get(API_GET_ORDER);
     }
 }

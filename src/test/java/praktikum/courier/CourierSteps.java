@@ -8,6 +8,7 @@ import praktikum.courier.create.CreateCourierRequest;
 import praktikum.courier.login.LoginCourierRequest;
 
 import static io.restassured.RestAssured.given;
+import static praktikum.Endpoints.*;
 import static praktikum.EnvConf.BASE_URL;
 
 public class CourierSteps {
@@ -20,7 +21,7 @@ public class CourierSteps {
                 .baseUri(BASE_URL)
                 .body(request)
                 .when()
-                .post("/api/v1/courier");
+                .post(API_CREATE_COURIER);
     }
 
     @Step("Send POST request to /api/v1/courier/login")
@@ -31,7 +32,7 @@ public class CourierSteps {
                 .baseUri(BASE_URL)
                 .body(request)
                 .when()
-                .post("/api/v1/courier/login");
+                .post(API_LOGIN_COURIER);
     }
 
     @Step("Send DELETE request to /api/v1/courier/{id}")
@@ -41,7 +42,7 @@ public class CourierSteps {
                 .baseUri(BASE_URL)
                 .pathParam("id", id)
                 .when()
-                .delete("/api/v1/courier/{id}")
+                .delete(API_DELETE_COURIER)
                 .then();
 
     }
@@ -62,7 +63,7 @@ public class CourierSteps {
         return given()
                 .baseUri(BASE_URL)
                 .when()
-                .delete("/api/v1/courier")
+                .delete(API_DELETE_COURIER_WITHOUT_LOGIN)
                 .then();
     }
 
@@ -73,7 +74,7 @@ public class CourierSteps {
                 .baseUri(BASE_URL)
                 .body(request)
                 .when()
-                .post("/api/v1/courier");
+                .post(API_CREATE_COURIER);
     }
 
 }
