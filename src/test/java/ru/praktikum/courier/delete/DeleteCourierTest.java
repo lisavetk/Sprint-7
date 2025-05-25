@@ -14,6 +14,8 @@ import ru.praktikum.courier.create.CreateCourierRequest;
 import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
+import static ru.praktikum.EnvConf.MESSAGE_DELETE_COURIER_WITHOUT_DATA;
+import static ru.praktikum.EnvConf.MESSAGE_DELETE_COURIER_WITH_NON_EXISTENT_ID;
 
 @DisplayName("Delete courier with valid data")
 public class DeleteCourierTest {
@@ -49,7 +51,7 @@ public class DeleteCourierTest {
     public void deleteCourierReturn400WithoutId() {
         courierSteps.deleteCourierWithoutId()
                 .statusCode(SC_BAD_REQUEST)
-                .body("message", containsString("Недостаточно данных для удаления курьера"));
+                .body("message", containsString(MESSAGE_DELETE_COURIER_WITHOUT_DATA));
     }
 
     @Test
@@ -59,6 +61,6 @@ public class DeleteCourierTest {
         int id = Integer.parseInt(RandomStringUtils.randomNumeric(7));
         courierSteps.deleteCourier(id)
                 .statusCode(SC_NOT_FOUND)
-                .body("message", containsString("Курьера с таким id нет"));
+                .body("message", containsString(MESSAGE_DELETE_COURIER_WITH_NON_EXISTENT_ID));
     }
 }

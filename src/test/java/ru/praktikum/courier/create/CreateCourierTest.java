@@ -12,6 +12,7 @@ import ru.praktikum.courier.CourierSteps;
 
 import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.*;
+import static ru.praktikum.EnvConf.MESSAGE_COURIER_IS_EXISTS;
 
 @DisplayName("Create courier with valid data")
 public class CreateCourierTest {
@@ -49,7 +50,7 @@ public class CreateCourierTest {
         courierSteps.createCourier(request)
                 .then()
                 .statusCode(SC_CONFLICT)
-                .body("message", containsString("Этот логин уже используется"));
+                .body("message", containsString(MESSAGE_COURIER_IS_EXISTS));
     }
 
 

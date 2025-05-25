@@ -15,6 +15,7 @@ import ru.praktikum.courier.create.CreateCourierRequest;
 
 import static org.apache.http.HttpStatus.SC_NOT_FOUND;
 import static org.hamcrest.Matchers.equalTo;
+import static ru.praktikum.EnvConf.MESSAGE_LOGIN_COURIER_WITH_INVALID_DATA;
 
 @DisplayName("Login courier with invalid login and password")
 @RunWith(Parameterized.class)
@@ -59,7 +60,7 @@ public class LoginCourierWithInvalidDataTest {
         courierSteps.loginCourier(login, password)
                 .then()
                 .statusCode(SC_NOT_FOUND)
-                .body("message", equalTo("Учетная запись не найдена"));
+                .body("message", equalTo(MESSAGE_LOGIN_COURIER_WITH_INVALID_DATA));
     }
 
     @AfterClass

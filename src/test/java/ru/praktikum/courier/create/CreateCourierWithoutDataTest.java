@@ -14,6 +14,7 @@ import ru.praktikum.courier.CourierSteps;
 
 import static org.apache.http.HttpStatus.SC_BAD_REQUEST;
 import static org.hamcrest.CoreMatchers.equalTo;
+import static ru.praktikum.EnvConf.MESSAGE_CREATE_COURIER_WITHOUT_DATA;
 
 @DisplayName("Create courier without login or password")
 @RunWith(Parameterized.class)
@@ -52,14 +53,14 @@ public class CreateCourierWithoutDataTest {
     }
 
     @Test
-    @DisplayName("Create courier POST /api/v1/courier without login")
+    @DisplayName("Create courier POST /api/v1/courier without Data")
     @Description("Return 400 Bad Request and \"message\": \"Недостаточно данных для создания учетной записи\"")
     public void createCourierReturn400WithoutData() {
         CreateCourierRequest request = new CreateCourierRequest(login, password, firstName);
         courierSteps.createCourier(request)
                 .then()
                 .statusCode(SC_BAD_REQUEST)
-                .body("message", equalTo("Недостаточно данных для создания учетной записи"));
+                .body("message", equalTo(MESSAGE_CREATE_COURIER_WITHOUT_DATA));
     }
 
    @After

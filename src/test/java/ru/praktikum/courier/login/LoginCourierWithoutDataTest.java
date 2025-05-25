@@ -15,6 +15,8 @@ import ru.praktikum.courier.create.CreateCourierRequest;
 
 import static org.apache.http.HttpStatus.SC_BAD_REQUEST;
 import static org.hamcrest.Matchers.equalTo;
+import static ru.praktikum.EnvConf.MESSAGE_LOGIN_COURIER_WITHOUT_DATA;
+
 @DisplayName("Login courier without login or password")
 @RunWith(Parameterized.class)
 public class LoginCourierWithoutDataTest {
@@ -61,7 +63,7 @@ public class LoginCourierWithoutDataTest {
         courierSteps.loginCourier(loginTest, passwordTest)
                 .then()
                 .statusCode(SC_BAD_REQUEST)
-                .body("message", equalTo("Недостаточно данных для входа"));
+                .body("message", equalTo(MESSAGE_LOGIN_COURIER_WITHOUT_DATA));
     }
 
     @After
