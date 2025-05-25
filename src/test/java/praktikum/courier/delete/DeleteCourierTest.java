@@ -1,4 +1,4 @@
-package praktikum.courier.deleteCourier;
+package praktikum.courier.delete;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;

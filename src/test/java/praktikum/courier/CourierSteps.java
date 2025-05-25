@@ -4,8 +4,8 @@ import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
-import praktikum.courier.createCourier.CreateCourierRequest;
-import praktikum.courier.loginCourier.LoginCourierRequest;
+import praktikum.courier.create.CreateCourierRequest;
+import praktikum.courier.login.LoginCourierRequest;
 
 import static io.restassured.RestAssured.given;
 import static praktikum.EnvConf.BASE_URL;

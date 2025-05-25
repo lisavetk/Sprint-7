@@ -1,4 +1,4 @@
-package praktikum.courier.createCourier;
+package praktikum.courier.create;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
