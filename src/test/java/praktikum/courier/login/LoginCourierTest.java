@@ -43,6 +43,28 @@ public class LoginCourierTest {
     }
 
     @Test
+    @DisplayName("Login courier POST /api/v1/courier/login with invalid login")
+    @Description("Return 404 Created and \"message\": \"Учетная запись не найдена\"")
+    public void loginCourierReturn404LoginIsntExists() {
+        login = RandomStringUtils.randomAlphabetic(10);
+        courierSteps.loginCourier(login, password)
+                .then()
+                .statusCode(SC_NOT_FOUND)
+                .body("message", equalTo("Учетная запись не найдена"));
+    }
+
+    @Test
+    @DisplayName("Login courier POST /api/v1/courier/login with invalid password")
+    @Description("Return 404 Created and \"message\": \"Учетная запись не найдена\"")
+    public void loginCourierReturn404PasswordIsntExists() {
+        password = RandomStringUtils.randomAlphabetic(10);
+        courierSteps.loginCourier(login, password)
+                .then()
+                .statusCode(SC_NOT_FOUND)
+                .body("message", equalTo("Учетная запись не найдена"));
+    }
+
+    @Test
     @DisplayName("Login courier POST /api/v1/courier/login with invalid data")
     @Description("Return 404 Created and \"message\": \"Учетная запись не найдена\"")
     public void loginCourierReturn404DataIsntExists() {
