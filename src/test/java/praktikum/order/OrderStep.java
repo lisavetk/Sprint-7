@@ -28,11 +28,11 @@ public class OrderStep {
     }
 
     @Step("Send PUT request to /api/v1/orders/cancel")
-    public ValidatableResponse cancelOrder(int track) {
+    public ValidatableResponse cancelOrder(cancelOrderRequest request) {
         return given()
                 .contentType(ContentType.JSON)
                 .baseUri(BASE_URL)
-                .body("{\"track\": " + track + "}")
+                .body(request)
                 .when()
                 .put(API_ORDER_CANCEL)
                 .then();

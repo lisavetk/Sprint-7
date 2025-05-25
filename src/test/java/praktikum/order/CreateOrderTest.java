@@ -86,7 +86,8 @@ public class CreateOrderTest {
     @After
     public void tearDown() {
         if (track != 0) {
-            orderStep.cancelOrder(track);
+            cancelOrderRequest request = new cancelOrderRequest(track);
+            orderStep.cancelOrder(request);
         }
     }
 }
