@@ -1,4 +1,4 @@
-package praktikum.courier.delete;
+package ru.praktikum.courier.delete;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
@@ -8,7 +8,7 @@ import io.restassured.response.Response;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Before;
 import org.junit.Test;
-import praktikum.courier.CourierSteps;
+import ru.praktikum.courier.CourierSteps;
 import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;

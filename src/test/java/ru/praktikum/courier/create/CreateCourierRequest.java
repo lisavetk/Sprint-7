@@ -1,4 +1,4 @@
-package praktikum.courier.create;
+package ru.praktikum.courier.create;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

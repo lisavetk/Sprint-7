@@ -1,4 +1,4 @@
-package praktikum.order;
+package ru.praktikum.order;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

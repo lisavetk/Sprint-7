@@ -1,4 +1,4 @@
-package praktikum.courier.login;
+package ru.praktikum.courier.login;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
@@ -8,7 +8,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import praktikum.courier.CourierSteps;
+import ru.praktikum.courier.CourierSteps;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;

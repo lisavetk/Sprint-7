@@ -1,4 +1,4 @@
-package praktikum.order;
+package ru.praktikum.order;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
@@ -18,8 +18,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import static org.apache.http.HttpStatus.SC_CREATED;
 import static org.hamcrest.Matchers.notNullValue;
-import static praktikum.EnvConf.COLOR_BLACK;
-import static praktikum.EnvConf.COLOR_GREY;
+import static ru.praktikum.EnvConf.COLOR_BLACK;
+import static ru.praktikum.EnvConf.COLOR_GREY;
 
 @DisplayName("Create order")
 @RunWith(Parameterized.class)

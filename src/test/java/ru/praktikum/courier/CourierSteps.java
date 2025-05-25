@@ -1,15 +1,15 @@
-package praktikum.courier;
+package ru.praktikum.courier;
 
 import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
-import praktikum.courier.create.CreateCourierRequest;
-import praktikum.courier.login.LoginCourierRequest;
+import ru.praktikum.courier.create.CreateCourierRequest;
+import ru.praktikum.courier.login.LoginCourierRequest;
 
 import static io.restassured.RestAssured.given;
-import static praktikum.Endpoints.*;
-import static praktikum.EnvConf.BASE_URL;
+import static ru.praktikum.Endpoints.*;
+import static ru.praktikum.EnvConf.BASE_URL;
 
 public class CourierSteps {
 

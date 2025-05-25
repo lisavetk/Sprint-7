@@ -1,4 +1,4 @@
-package praktikum.order;
+package ru.praktikum.order;
 
 import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
@@ -8,8 +8,8 @@ import io.restassured.response.ValidatableResponse;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
-import static praktikum.Endpoints.*;
-import static praktikum.EnvConf.BASE_URL;
+import static ru.praktikum.Endpoints.*;
+import static ru.praktikum.EnvConf.BASE_URL;
 
 public class OrderStep {
 

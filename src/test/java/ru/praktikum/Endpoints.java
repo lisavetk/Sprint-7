@@ -1,4 +1,4 @@
-package praktikum;
+package ru.praktikum;
 
 public class Endpoints {
     public static final String API_CREATE_COURIER = "/api/v1/courier";

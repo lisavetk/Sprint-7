@@ -1,4 +1,4 @@
-package praktikum.courier.login;
+package ru.praktikum.order;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,8 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class LoginCourierRequest {
-    private String login;
-    private String password;
-
+public class cancelOrderRequest {
+    private int track;
 }
