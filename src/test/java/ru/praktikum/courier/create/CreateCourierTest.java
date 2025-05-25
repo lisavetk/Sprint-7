@@ -33,7 +33,8 @@ public class CreateCourierTest {
     @DisplayName("Create courier POST /api/v1/courier with valid data")
     @Description("Return 201 Created and ok:true")
     public void createCourierReturn201DataIsValid() {
-        courierSteps.createCourier(login, password, firstName)
+        CreateCourierRequest request = new CreateCourierRequest(login, password, firstName);
+        courierSteps.createCourier(request)
                 .then()
                 .statusCode(SC_CREATED)
                 .body("ok", is(true));
@@ -43,8 +44,9 @@ public class CreateCourierTest {
     @DisplayName("Create courier POST /api/v1/courier with same data")
     @Description("Return 409 Сonflict and \"message\": \"Этот логин уже используется\"")
     public void createCourierReturn409DataIsExists() {
-        courierSteps.createCourier(login, password, firstName);
-        courierSteps.createCourier(login, password, firstName)
+        CreateCourierRequest request = new CreateCourierRequest(login, password, firstName);
+        courierSteps.createCourier(request);
+        courierSteps.createCourier(request)
                 .then()
                 .statusCode(SC_CONFLICT)
                 .body("message", containsString("Этот логин уже используется"));

@@ -11,6 +11,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import ru.praktikum.courier.CourierSteps;
+import ru.praktikum.courier.create.CreateCourierRequest;
 
 import static org.apache.http.HttpStatus.SC_BAD_REQUEST;
 import static org.hamcrest.Matchers.equalTo;
@@ -47,7 +48,8 @@ public class LoginCourierWithoutDataTest {
         randomLogin = RandomStringUtils.randomAlphabetic(10);
         randomPassword = RandomStringUtils.randomAlphabetic(10);
         String firstName = RandomStringUtils.randomAlphabetic(10);
-        courierSteps.createCourier(randomLogin, randomPassword, firstName);
+        CreateCourierRequest request = new CreateCourierRequest(randomLogin, randomPassword, firstName);
+        courierSteps.createCourier(request);
     }
 
     @Test

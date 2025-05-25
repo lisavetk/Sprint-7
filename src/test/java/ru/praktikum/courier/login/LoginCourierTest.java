@@ -9,6 +9,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import ru.praktikum.courier.CourierSteps;
+import ru.praktikum.courier.create.CreateCourierRequest;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
@@ -28,8 +29,8 @@ public class LoginCourierTest {
         login = RandomStringUtils.randomAlphabetic(10);
         password = RandomStringUtils.randomAlphabetic(10);
         String firstName = RandomStringUtils.randomAlphabetic(10);
-
-        courierSteps.createCourier(login, password, firstName);
+        CreateCourierRequest request = new CreateCourierRequest(login, password, firstName);
+        courierSteps.createCourier(request);
     }
 
     @Test
@@ -42,7 +43,7 @@ public class LoginCourierTest {
                 .body("id", notNullValue());
     }
 
-    @Test
+    /*@Test
     @DisplayName("Login courier POST /api/v1/courier/login with invalid login")
     @Description("Return 404 Created and \"message\": \"Учетная запись не найдена\"")
     public void loginCourierReturn404LoginIsntExists() {
@@ -75,7 +76,7 @@ public class LoginCourierTest {
                 .statusCode(SC_NOT_FOUND)
                 .body("message", equalTo("Учетная запись не найдена"));
     }
-
+*/
 
 
     @After

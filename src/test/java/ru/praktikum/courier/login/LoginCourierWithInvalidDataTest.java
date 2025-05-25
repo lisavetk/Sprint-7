@@ -11,6 +11,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import ru.praktikum.courier.CourierSteps;
+import ru.praktikum.courier.create.CreateCourierRequest;
 
 import static org.apache.http.HttpStatus.SC_NOT_FOUND;
 import static org.hamcrest.Matchers.equalTo;
@@ -36,7 +37,8 @@ public class LoginCourierWithInvalidDataTest {
         validLogin = RandomStringUtils.randomAlphabetic(10);
         validPassword = RandomStringUtils.randomAlphabetic(10);
         String firstName = RandomStringUtils.randomAlphabetic(10);
-        new CourierSteps().createCourier(validLogin, validPassword, firstName);
+        CreateCourierRequest request = new CreateCourierRequest(validLogin, validPassword, firstName);
+        new CourierSteps().createCourier(request);
         return new Object[][] {
                 {RandomStringUtils.randomAlphabetic(10), validPassword, "invalid login"},
                 {validLogin, RandomStringUtils.randomAlphabetic(10), "invalid password"},

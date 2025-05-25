@@ -13,8 +13,8 @@ import static ru.praktikum.EnvConf.BASE_URL;
 
 public class CourierSteps {
 
-    @Step("Send POST request to /api/v1/courier")
-    public Response createCourier(String login, String password, String firstName) {
+    // @Step("Send POST request to /api/v1/courier")
+   /* public Response createCourier(String login, String password, String firstName) {
         CreateCourierRequest request = new CreateCourierRequest(login, password, firstName);
         return  given()
                 .contentType(ContentType.JSON)
@@ -22,7 +22,7 @@ public class CourierSteps {
                 .body(request)
                 .when()
                 .post(API_CREATE_COURIER);
-    }
+    }*/
 
     @Step("Send POST request to /api/v1/courier/login")
     public Response loginCourier(String login, String password) {

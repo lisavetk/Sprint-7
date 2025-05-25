@@ -9,6 +9,8 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Before;
 import org.junit.Test;
 import ru.praktikum.courier.CourierSteps;
+import ru.praktikum.courier.create.CreateCourierRequest;
+
 import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
@@ -26,7 +28,8 @@ public class DeleteCourierTest {
         String firstName = RandomStringUtils.randomAlphabetic(10);
         RestAssured.config = RestAssured.config()
                 .logConfig(LogConfig.logConfig().enableLoggingOfRequestAndResponseIfValidationFails());
-        courierSteps.createCourier(login, password, firstName);
+        CreateCourierRequest request = new CreateCourierRequest(login, password, firstName);
+        courierSteps.createCourier(request);
     }
 
     @Test
